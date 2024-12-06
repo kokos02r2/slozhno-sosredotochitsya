@@ -13,7 +13,9 @@
   --card-link-shadow-color: #FF0070;
   --header-title-text-weight: 700;
   --header-title-text-size: 157px;
-  --main-font-family: 'IBM Plex Mono', sans-serif;
+  --main-font-family: 'IBM Plex Mono', monospace;
   --title-text-size: 18px;
   --switch-border-color-opacity: rgb(255 0 112 / 0.4);
+  --background-image: url(../images/cover-image-dark.png);
+  --header-rec-display: flex;
 }

@@ -11,11 +11,13 @@
   --link-shadow-color: #FF8DCB;
   --question_color: #353430;
   --card-link-shadow-color: #FF8DCB;
+  --background-image: url(../images/cover-image-light.png);
+  --header-rec-display: none;
 }
 
-.page.theme_light .header__rec {
+/* .page.theme_light .header__rec {
   display: none;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -31,12 +33,7 @@
     --link-shadow-color: #FF8DCB;
     --question_color: #353430;
     --card-link-shadow-color: #FF8DCB;
-  }
-}
-
-
-@media (width >= 768px) {
-  .page.theme_light {
-    background-image: url(../images/cover-image-light.png);
+    --background-image: url(../images/cover-image-light.png);
+    --header-rec-display: none;
   }
 }

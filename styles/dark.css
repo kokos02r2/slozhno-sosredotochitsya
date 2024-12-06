@@ -1,4 +1,5 @@
 .page.theme_dark {
+  --bg-color: #000028;
   --switch-border-color: #FF0070;
   --switch-border-color-opacity: rgb(255 0 112 / 0.4);
   --switch-text-color: #FF0070;
@@ -10,10 +11,13 @@
   --bg-text-color: #FF0070;
   --question_color: #FF0070;
   --card-link-shadow-color: #FF0070;
+  --background-image: url(../images/cover-image-dark.png);
+  --header-rec-display: flex;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --bg-color: #000028;
     --switch-border-color: #FF0070;
     --switch-border-color-opacity: rgb(255 0 112 / 0.4);
     --switch-text-color: #FF0070;
@@ -25,12 +29,7 @@
     --bg-text-color: #FF0070;
     --question_color: #FF0070;
     --card-link-shadow-color: #FF0070;
-  }
-}
-
-@media (width >= 768px) {
-
-  .page.theme_dark {
-    background-image: url(../images/cover-image-dark.png);
+    --background-image: url(../images/cover-image-dark.png);
+    --header-rec-display: flex;
   }
 }

@@ -7,11 +7,12 @@
   font-size: var(--title-text-size);
   height: 100vh;
   line-height: 130%;
+  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
-
 
 /* Header */
 .header {
@@ -24,6 +25,8 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   padding: 0 10px;
+  min-height: 668px;
+  min-block-size: 100vh;
 }
 
 .header__title {
@@ -35,15 +38,18 @@
   line-height: 83%;
 }
 
-.header__text {
-  grid-area: description;
-  text-align: start;
-  display: inline-block;
+.title-decor {
   background-color: var(--bg-text-color);
   font-size: var(--title-text-size);
   font-weight: var(--header-title-text-weight);
   color: var(--main-title-text-color);
-  margin-bottom: 10px;
+}
+
+.header__text {
+  grid-area: description;
+  text-align: start;
+  display: inline-block;
+  margin-block-end: 10px;
 }
 
 .header__theme-menu {
@@ -69,6 +75,7 @@
   color: var(--switch-text-color);
   border:none;
   padding: 0;
+  cursor: pointer
 }
 
 .header__theme-menu-button:focus {
@@ -91,7 +98,7 @@
 }
 
 .header__rec {
-  display: flex;
+  display: var(--header-rec-display, flex);
   position: absolute;
   align-items: center;
   top: 1px;
@@ -116,7 +123,6 @@
 /* Decorated Zone */
 .decorated-zone {
   position: relative;
-  min-block-size: 100vh;
 }
 
 .decorated-zone::before,
@@ -155,15 +161,9 @@
   gap: 20px;
 }
 
-.card-list__row {
+.cards {
   display: grid;
   gap: 20px;
-}
-
-.card__title {
-  background-color: var(--bg-text-color);
-  font-size: var(--title-text-size);
-  color: var(--main-title-text-color);
 }
 
 .card__title_thin {
@@ -217,7 +217,7 @@
   gap: 10px;
 }
 
-.gallery__container {
+.gallery__items {
   display: grid;
   gap: 10px;
 }
@@ -235,10 +235,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-block-size: 100vh;
 }
 
-.footer .header__title {
+.footer__title {
+  grid-area: title;
+  align-self: center;
+  color: var(--header-title-color);
   text-shadow: 2px 2px 0 var(--header-title-shadow-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
 }
 
 @media (width >=768px) {
@@ -256,6 +262,10 @@
   }
 
   .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
@@ -287,7 +297,7 @@
     gap: 80px;
   }
 
-  .question__column {
+  .question__details {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
@@ -297,7 +307,7 @@
     gap: 80px;
   }
 
-  .table-column {
+  .features {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
@@ -307,17 +317,17 @@
     gap: 20px;
   }
 
-  .gallery__container {
+  .gallery__items {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: 20px;
   }
 
-  .gallery__vertical_picture {
+  .gallery__picture--vertical {
     grid-row: span 2;
   }
 
-  .gallery__horizontal_picture {
+  .gallery__picture--horizontal {
     grid-column: span 2;
   }
 
@@ -335,11 +345,11 @@
     flex-direction: row;
   }
 
-  .card-list__row {
+  .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .table-column {
+  .features {
     gap: 10px;
   }
 }
