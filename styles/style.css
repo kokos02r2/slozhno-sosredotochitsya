@@ -1,5 +1,345 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--bg-color);
+  font-family: var(--main-font-family);
+  font-size: var(--title-text-size);
+  height: 100vh;
+  line-height: 130%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* Header */
+.header {
+  display: grid;
+  grid-template-areas:
+    "switch switch"
+    "title title"
+    "description description";
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  padding: 0 10px;
+}
+
+.header__title {
+  grid-area: title;
+  align-self: center;
+  color: var(--header-title-color);
+  text-shadow: 4px 4px 0 var(--header-title-shadow-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+}
+
+.header__text {
+  grid-area: description;
+  text-align: start;
+  display: inline-block;
+  background-color: var(--bg-text-color);
+  font-size: var(--title-text-size);
+  font-weight: var(--header-title-text-weight);
+  color: var(--main-title-text-color);
+  margin-bottom: 10px;
+}
+
+.header__theme-menu {
+  grid-area: switch;
+  align-self: center;
+  justify-self: end;
+  padding-top: 10px;
+}
+
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  inline-size: 70px;
+  block-size: 26px;
+  background-color: transparent;
+  text-transform: lowercase;
+  border-color: var(--switch-border-color);
+  color: var(--switch-text-color);
+  border:none;
+  padding: 0;
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--switch-border-color, #ff0070);
+  outline: none;
+}
+
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--switch-border-color-opacity, rgb(255 0 112 / 0.4));
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--switch-border-color, #ff0070);
+  pointer-events: none;
+}
+
+.header__rec {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 1px;
+  right: 9px;
+  font-family: var(--main-font-family);
+  color: var(--switch-text-color, #ff4d4d);
+  padding: 10px;
+
+}
+
+.header__rec::after {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 10px;
+  background-color: var(--switch-text-color, #ff4d4d);
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--switch-text-color,#FF0070);
+}
+
+/* Decorated Zone */
+.decorated-zone {
+  position: relative;
+  min-block-size: 100vh;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+.decorated-zone::before {
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  border-block-start: 1px solid var(--rec-frame-color, #ff007f);
+  border-inline-end: 1px solid var(--rec-frame-color, #ff007f);
+}
+
+.decorated-zone::after {
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  border-block-end: 1px solid var(--rec-frame-color, #ff007f);
+  border-inline-start: 1px solid var(--rec-frame-color, #ff007f);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 10px;
+}
+
+/* Cards */
+.card-list {
+  display: grid;
+  gap: 20px;
+}
+
+.card-list__row {
+  display: grid;
+  gap: 20px;
+}
+
+.card__title {
+  background-color: var(--bg-text-color);
+  font-size: var(--title-text-size);
+  color: var(--main-title-text-color);
+}
+
+.card__title_thin {
+  font-weight: 400;
+}
+
+.card__title_padding {
+  margin-top: 20px;
+}
+
+.card__text {
+  color: var(--main-text-color);
+  line-height: 130%;
+  padding-top: 10px;
+}
+
+.card__link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--card-link-shadow-color, #ff0070);
+}
+
+.card__link:hover {
+  border-block-end: 1px solid currentColor;
+}
+
+.card__link:focus {
+  outline: none;
+}
+
+.card__link:focus-visible {
+  outline: 1px solid currentColor;
+  appearance: none;
+}
+
+
+/* Questions */
+.question {
+  color: var(--question_color);
+  font-size: var(--title-text-size);
+  padding-bottom: 20px;
+}
+
+.question__list {
+  display: grid;
+  gap: 50px;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__container {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__picture {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .header__title {
+  text-shadow: 2px 2px 0 var(--header-title-shadow-color);
+}
+
+@media (width >=768px) {
+  .page {
+    gap: 60px;
+  }
+
+  .header {
+    grid-template-areas:
+      "switch switch"
+      "title title"
+      ". description";
+    padding-right: 20px;
+    padding-left: 0px;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .header__theme-menu {
+    margin-top: 5px;
+  }
+
+  .header__rec {
+    padding: 20px;
+  }
+
+  .decorated-zone::before {
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+  }
+  
+  .decorated-zone::after {
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
+  } 
+
+  .main {
+    padding: 0 20px;
+    gap: 80px;
+  }
+
+  .question__column {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .question__list {
+    gap: 80px;
+  }
+
+  .table-column {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .gallery__vertical_picture {
+    grid-row: span 2;
+  }
+
+  .gallery__horizontal_picture {
+    grid-column: span 2;
+  }
+
+}
+
+@media (width >=1024px) {
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .card-list__row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .table-column {
+    gap: 10px;
+  }
 }

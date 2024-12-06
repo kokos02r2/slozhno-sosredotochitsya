@@ -1,12 +1,42 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 .page.theme_light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --bg-color: #FFF1F7;
+  --switch-border-color: #353430;
+  --switch-border-color-opacity: rgb(53 52 48 / 0.4);
+  --switch-text-color: #353430;
+  --rec-frame-color: #353430;
+  --main-text-color: #353430;
+  --main-title-text-color: #353430;
+  --header-title-color: #FFC2E6;
+  --bg-text-color: #FF8DCB;
+  --link-shadow-color: #FF8DCB;
+  --question_color: #353430;
+  --card-link-shadow-color: #FF8DCB;
+}
+
+.page.theme_light .header__rec {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #FFF1F7;
+    --switch-border-color: #353430;
+    --switch-border-color-opacity: rgb(53 52 48 / 0.4);
+    --switch-text-color: #353430;
+    --rec-frame-color: #353430;
+    --main-text-color: #353430;
+    --main-title-text-color: #353430;
+    --header-title-color: #FFC2E6;
+    --bg-text-color: #FF8DCB;
+    --link-shadow-color: #FF8DCB;
+    --question_color: #353430;
+    --card-link-shadow-color: #FF8DCB;
+  }
+}
+
+
+@media (width >= 768px) {
+  .page.theme_light {
+    background-image: url(../images/cover-image-light.png);
+  }
 }
