@@ -313,6 +313,12 @@
     gap: 20px;
   }
 
+  .features__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .gallery {
     gap: 20px;
   }
@@ -323,11 +329,11 @@
     gap: 20px;
   }
 
-  .gallery__picture--vertical {
+  .gallery__picture--portrait {
     grid-row: span 2;
   }
 
-  .gallery__picture--horizontal {
+  .gallery__picture--landscape {
     grid-column: span 2;
   }
 
